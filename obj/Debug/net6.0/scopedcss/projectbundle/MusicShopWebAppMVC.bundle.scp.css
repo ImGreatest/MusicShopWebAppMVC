@@ -1,0 +1,49 @@
+/* _content/MusicShopWebAppMVC/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-hgsg6gfpla] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-hgsg6gfpla] {
+  color: #0077cc;
+}
+
+.btn-primary[b-hgsg6gfpla] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-hgsg6gfpla], .nav-pills .show > .nav-link[b-hgsg6gfpla] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-hgsg6gfpla] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-hgsg6gfpla] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-hgsg6gfpla] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-hgsg6gfpla] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-hgsg6gfpla] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

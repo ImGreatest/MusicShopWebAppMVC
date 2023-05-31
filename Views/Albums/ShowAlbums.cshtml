@@ -1,0 +1,75 @@
+﻿@using Microsoft.EntityFrameworkCore
+@model List<Album>
+@{
+    ViewData["Title"] = "Available Albums";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="table-responsive" style="margin-top: 50px">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Issue</th>
+            <th scope="col">CountSongs</th>
+            <th scope="col">NameAlbum</th>
+            <th scope="col">CountryIssue</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.Id</td>
+                <td>@i.Issue</td>
+                <td>@i.CountSongs</td>
+                <td>@i.NameAlbum</td>
+                <td>@i.CountryIssue</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <div style="margin-top: 50px">
+        <form method="post" action="/Albums/Update">
+            <input type="text" placeholder="Name exist condition" name="updatingAlbum"/>
+            <input type="text" placeholder="Name new condition" name="newAlbumName"/>
+            <button class="btn btn-warning" type="submit" onclick="showAlert()">Update</button>
+            <div id="alert" class="alert-warning" style="display: none">Success!</div>
+        </form>
+    </div>
+</div>
+
+<div style="margin-top: 50px">
+    <form method="post" action="/Albums/Adding">
+        <input type="number" placeholder="Id new album" name="newAlbumID"/>
+        <input type="text" placeholder="Name new album" name="newNameAlbum"/>
+        <input type="text" placeholder="Country of issue new album" name="newCountryIssue"/>
+        <input type="number" placeholder="Count of songs new album" name="newCountSongs"/>
+        <input type="text" placeholder="Date of issue new album" name="newIssue"/>
+        <button class="btn btn-success" type="submit" onclick="showAlert2()">Add</button>
+        <div id="alert2" class="alert-success" style="display: none">Success!</div>
+    </form>
+</div>
+
+<div style="margin-top: 50px">
+    <form method="post" action="/Albums/Delete">
+        <input type="text" name="deleteAlbumID" placeholder="Name condition to delete"/>
+        <button class="btn btn-danger" type="submit" onclick="showAlert3()">Delete</button>
+        <div id="alert3" class="alert-danger" style="display: none">Success!</div>
+    </form>
+</div>
+
+<script>
+function showAlert(){
+    document.getElementById("alert").style.display = "block";    
+}
+
+function showAlert2(){
+    document.getElementById("alert2").style.display = "block";    
+}
+
+function showAlert3(){
+    document.getElementById("alert3").style.display = "block";    
+}
+</script>
+

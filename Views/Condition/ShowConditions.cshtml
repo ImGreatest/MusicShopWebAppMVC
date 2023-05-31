@@ -1,0 +1,62 @@
+﻿@using Microsoft.EntityFrameworkCore
+@model List<Condition>
+@{
+    ViewData["Title"] = "Available Conditions";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="table-responsive" style="margin-top: 50px">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var id in Model)
+        {
+            <tr>
+                <td contenteditable="true">@id.Id</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <div style="margin-top: 50px">
+        <form method="post" action="/Condition/Update">
+            <input type="text" placeholder="Name exist condition" name="updatingCondition"/>
+            <input type="text" placeholder="Name new condition" name="newCondition"/>
+            <button class="btn btn-warning" type="submit" onclick="showAlert()">Update</button>
+            <div id="alert" class="alert-warning" style="display: none">Success!</div>
+        </form>
+    </div>
+</div>
+
+<div style="margin-top: 50px">
+    <form method="post" action="/Condition/Adding">
+        <input type="text" placeholder="Name new condition" name="newCondition"/>
+        <button class="btn btn-success" type="submit" onclick="showAlert2()">Add</button>
+        <div id="alert2" class="alert-success" style="display: none">Success!</div>
+    </form>
+</div>
+
+<div style="margin-top: 50px">
+    <form method="post" action="/Condition/Delete">
+        <input type="text" name="deleteCondition" placeholder="Name condition to delete"/>
+        <button class="btn btn-danger" type="submit" onclick="showAlert3()">Delete</button>
+        <div id="alert3" class="alert-danger" style="display: none">Success!</div>
+    </form>
+</div>
+
+<script>
+function showAlert(){
+    document.getElementById("alert").style.display = "block";    
+}
+
+function showAlert2(){
+    document.getElementById("alert2").style.display = "block";    
+}
+
+function showAlert3(){
+    document.getElementById("alert3").style.display = "block";    
+}
+</script>
