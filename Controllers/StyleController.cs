@@ -33,7 +33,7 @@ public class StyleController : Controller
         return RedirectToAction(nameof(ShowStyles));
     }
 
-
+    // Удаление записи
     [HttpPost]
     public IActionResult Delete(string deleteStyle)
     {
@@ -50,15 +50,16 @@ public class StyleController : Controller
     }
     
     
+    // Обновление записи
     [HttpPost]
     public IActionResult Update(string? updatingStyle, string newStyle)
     {
         using ContextDB db = new ContextDB();
         Style data = db.Style.Find(updatingStyle)!;
 
-        var entity = new Label()
+        var entity = new Style()
         {
-            NameLabel = newStyle
+            NameStyle = newStyle
         };
         
         db.Style.Remove(data);

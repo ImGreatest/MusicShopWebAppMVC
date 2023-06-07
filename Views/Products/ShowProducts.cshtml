@@ -1,7 +1,7 @@
 ﻿@using Microsoft.EntityFrameworkCore
-@model List<Performer>
+@model List<Product>
 @{
-    ViewData["Title"] = "Available Performers";
+    ViewData["Title"] = "Available Products";
 }
 <h1>@ViewData["Title"]</h1>
 
@@ -10,7 +10,13 @@
         <thead>
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Label</th>
+            <th scope="col">Style</th>
+            <th scope="col">Album</th>
+            <th scope="col">Performer</th>
+            <th scope="col">Condition</th>
+            <th scope="col">Cost</th>
         </tr>
         </thead>
         <tbody>
@@ -18,13 +24,19 @@
         {
             <tr>
                 <td contenteditable="true">@i.Id</td>
-                <td contenteditable="true">@i.Name</td>
+                <td contenteditable="true">@i.TypeProduct</td>
+                <td contenteditable="true">@i.Label</td>
+                <td contenteditable="true">@i.Style</td>
+                <td contenteditable="true">@i.Album</td>
+                <td contenteditable="true">@i.Performer</td>
+                <td contenteditable="true">@i.Condition</td>
+                <td contenteditable="true">@i.Cost</td>
             </tr>
         }
         </tbody>
     </table>
     <div style="margin-top: 50px">
-        <form method="post" action="/Performer/Update">
+        <form method="post" action="/Products/Update">
             <input type="number" placeholder="Name exist performer" name="updatingPerformer"/>
             <input type="text" placeholder="Name new performer" name="newPerformer"/>
             <button class="btn btn-warning" type="submit" onclick="showAlert()">Update</button>
@@ -34,17 +46,23 @@
 </div>
 
 <div style="margin-top: 50px">
-    <form method="post" action="/Performer/Adding">
-        <input type="number" placeholder="ID new performer" name="newPerformerID"/>
-        <input type="text" placeholder="Name new performer" name="newPerformer"/>
+    <form method="post" action="/Products/Adding">
+        <input type="number" placeholder="ID new product" name="newProductID"/>
+        <input type="text" placeholder="Name new product" name="newProduct"/>
+        <input type="text" placeholder="Name Label" name="newLabel"/>
+        <input type="text" placeholder="Name Style" name="newStyles"/>
+        <input type="number" placeholder="Name Album" name="newAlbum"/>
+        <input type="number" placeholder="Name Performer" name="newPerformer"/>
+        <input type="text" placeholder="Name Condition" name="newCondition"/>
+        <input type="number" placeholder="Name Cost" name="newCost"/>
         <button class="btn btn-success" type="submit" onclick="showAlert2()">Add</button>
         <div id="alert2" class="alert-success" style="display: none">Success!</div>
     </form>
 </div>
 
 <div style="margin-top: 50px">
-    <form method="post" action="/Performer/Delete">
-        <input type="text" name="deletePerformer" placeholder="Name performer to delete"/>
+    <form method="post" action="/Products/Delete">
+        <input type="number" name="deleteProduct" placeholder="ID product to delete"/>
         <button class="btn btn-danger" type="submit" onclick="showAlert3()">Delete</button>
         <div id="alert3" class="alert-danger" style="display: none">Success!</div>
     </form>

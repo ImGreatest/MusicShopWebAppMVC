@@ -56,6 +56,7 @@ public class AlbumsController : Controller
         return RedirectToAction(nameof(ShowAlbums));
     }
 
+    // обновление записи
     [HttpPost]
     public IActionResult Update(int? updatingAlbum, string newAlbumName)
     {

@@ -1,7 +1,7 @@
 ﻿@using Microsoft.EntityFrameworkCore
-@model List<Performer>
+@model List<TypeProduct>
 @{
-    ViewData["Title"] = "Available Performers";
+    ViewData["Title"] = "Available Type Products";
 }
 <h1>@ViewData["Title"]</h1>
 
@@ -9,24 +9,22 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th scope="col">Id</th>
             <th scope="col">Name</th>
         </tr>
         </thead>
         <tbody>
-        @foreach (var i in Model)
+        @foreach (var names in Model)
         {
             <tr>
-                <td contenteditable="true">@i.Id</td>
-                <td contenteditable="true">@i.Name</td>
+                <td contenteditable="true">@names.TypeName</td>
             </tr>
         }
         </tbody>
     </table>
     <div style="margin-top: 50px">
-        <form method="post" action="/Performer/Update">
-            <input type="number" placeholder="Name exist performer" name="updatingPerformer"/>
-            <input type="text" placeholder="Name new performer" name="newPerformer"/>
+        <form method="post" action="/TypeProduct/Update">
+            <input type="text" placeholder="Name exist type of product" name="updatingType"/>
+            <input type="text" placeholder="Name new type of product" name="newType"/>
             <button class="btn btn-warning" type="submit" onclick="showAlert()">Update</button>
             <div id="alert" class="alert-warning" style="display: none">Success!</div>
         </form>
@@ -34,17 +32,16 @@
 </div>
 
 <div style="margin-top: 50px">
-    <form method="post" action="/Performer/Adding">
-        <input type="number" placeholder="ID new performer" name="newPerformerID"/>
-        <input type="text" placeholder="Name new performer" name="newPerformer"/>
+    <form method="post" action="/TypeProduct/Adding">
+        <input type="text" placeholder="Name new type of product" name="newType"/>
         <button class="btn btn-success" type="submit" onclick="showAlert2()">Add</button>
         <div id="alert2" class="alert-success" style="display: none">Success!</div>
     </form>
 </div>
 
 <div style="margin-top: 50px">
-    <form method="post" action="/Performer/Delete">
-        <input type="text" name="deletePerformer" placeholder="Name performer to delete"/>
+    <form method="post" action="/TypeProduct/Delete">
+        <input type="text" name="deleteType" placeholder="Name type of product to delete"/>
         <button class="btn btn-danger" type="submit" onclick="showAlert3()">Delete</button>
         <div id="alert3" class="alert-danger" style="display: none">Success!</div>
     </form>
