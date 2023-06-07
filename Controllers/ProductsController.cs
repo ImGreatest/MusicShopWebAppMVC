@@ -16,7 +16,7 @@ public class ProductsController : Controller
     }
     
     // Добавление записи
-    [HttpGet]
+    [HttpPost]
     public IActionResult Adding(int newProductID, string newProduct, string newLabel, string newStyles, int newAlbum, int newPerformer, string newCondition, int newCost)
     {
         var entity = new Product()
@@ -43,7 +43,7 @@ public class ProductsController : Controller
 
     // Удаление записи
     [HttpPost]
-    public IActionResult Delete(string deleteProduct)
+    public IActionResult Delete(int deleteProduct)
     {
         using ContextDB db = new ContextDB();
         Product data = db.Product.Find(deleteProduct);
