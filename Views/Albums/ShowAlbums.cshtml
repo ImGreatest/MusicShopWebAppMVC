@@ -39,13 +39,15 @@
     </div>
 </div>
 
+
+
 <div style="margin-top: 50px">
     <form method="post" action="/Albums/Adding">
-        <input type="number" placeholder="Id new album" name="newAlbumID"/>
-        <input type="text" placeholder="Name new album" name="newNameAlbum"/>
-        <input type="text" placeholder="Country of issue new album" name="newCountryIssue"/>
-        <input type="number" placeholder="Count of songs new album" name="newCountSongs"/>
-        <input type="text" placeholder="Date of issue new album" name="newIssue"/>
+        <input type="number" placeholder="Id new album" min="1" pattern="^[0-9]+$" name="newAlbumID" id="idAlbumsInput"/>
+        <input type="text" placeholder="Name new album" name="newNameAlbum" pattern="^[a-zA-Z]+$" id="nameAlbumInput" />
+        <input type="text" placeholder="Country of issue new album" pattern="^[a-zA-Z]+$" name="newCountryIssue" id="countryAlbumInput"/>
+        <input type="number" placeholder="Count of songs new album" min="1" pattern="^[0-9]+$" name="newCountSongs" id="countSongsAlbumInput"/>
+        <input type="text" placeholder="Date of issue new album" name="newIssue" id="dateAlbumInput"/>
         <button class="btn btn-success" type="submit" onclick="showAlert2()">Add</button>
         <div id="alert2" class="alert-success" style="display: none">Success!</div>
     </form>
