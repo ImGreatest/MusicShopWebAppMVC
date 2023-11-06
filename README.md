@@ -1,3 +1,3 @@
 # MusicShopWebAppMVC
 
-This is project view working with c# mvc on EntityFramework.
+This is project show working with c# mvc on EntityFramework.
