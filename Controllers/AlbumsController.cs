@@ -9,6 +9,7 @@ public class AlbumsController : Controller
 {
     public IActionResult ShowAlbums()
     {
+        ViewBag.Message = TempData["Message"]; // add viewbag 
         using ContextDB db = new ContextDB();
         var albumsList = db.Album.ToList();
 
@@ -31,8 +32,20 @@ public class AlbumsController : Controller
         using ContextDB db = new ContextDB();
         if (entity != null)
         {
-            db.Add(entity);
-            db.SaveChanges();
+            if (newNameAlbum.Length > 1) // add validation for name album
+            {
+                db.Add(entity);
+                db.SaveChanges();
+                TempData["Message"] = "Album added successfully";
+            }
+            else
+            {
+                TempData["Message"] = "Album name is too short!";
+            }
+        }
+        else
+        {
+            TempData["Message"] = "Album could not be saved!";
         }
         
         return RedirectToAction(nameof(ShowAlbums));
